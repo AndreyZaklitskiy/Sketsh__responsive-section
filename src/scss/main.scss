@@ -1,0 +1,199 @@
+// @import '../../node_modules/bootstrap/scss/bootstrap-grid';
+@import './modules/normalize';
+@import './modules/reset';
+@import './modules/fonts';
+@import './modules/variables';
+
+.h1 {
+    font-family: $gothic;
+    font-size: 166px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.h2, .h3, .p {
+    font-family: $poppins;
+    font-size: $fz;
+}
+
+.wrapper {
+    max-width: 100vw;
+    min-height: 100vh;
+    padding-top: 200px;
+
+    background-image: url(./../images/texture.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: $background;
+    position: relative;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        background-image: url(./../images/rings.png);
+    }
+}
+
+.container {
+    padding: 0 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid $yellow;
+    //menu__item
+    &__item {
+        position: relative;
+        display: inline-flex;
+        height: 140px;
+        padding-bottom: 80px;
+        //menu__item_text
+        &_text {
+            &:before {
+                content: '';
+                display: block;
+                transform: scaleX(0);
+                width: 100%;
+                height: 15px;
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                background-color: $textColor;
+                transition: transform 0.3s;
+            }
+            &:hover {
+                &::before {
+                    display: block;
+                    transform: scaleX(1);
+                    transition: transform 0.3s;
+                }
+            }
+        }
+        //menu__btn
+        &__btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            border: none;
+            img {
+                width: 65px;
+                height: 68px;
+            }
+        }
+    }
+    //menu__item-link
+    &__item-link {
+        display: inline-block;
+        line-height: 140px;
+        font-size: $fz;
+        color: $textColor;
+        font-family: $poppins;
+        height: 100%;
+    }
+    //menu__btn
+    &__btn {
+        margin: auto;
+    }
+    //menu__btn_burger
+    &__btn_burger {
+
+    }
+}
+.logo {
+    width: 285px;
+    height: auto;
+}
+
+.presentation {
+    padding-top: 135px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+.col {
+    width: calc(100%/4);
+}
+.col-2 {
+    width: calc(100%/2);
+}
+
+.presentation__column {
+    padding-bottom: 175px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .image {
+        margin-top: auto;
+        height: auto;
+        margin-bottom: 205px;
+    }
+    .h2 {
+        font-size: $fz;
+        margin-bottom: 70px;
+        max-width: 500px;
+        color: $yellow;
+    }
+    .p {
+        margin-bottom: 180px;
+        max-width: 500px;
+        color: $textColor;
+    }
+    .btn {
+        margin-bottom: auto;
+        padding: 42px 83px;
+        background-color: $yellow;
+        border-radius: 62px;
+        font-size: $fz;
+        font-family: $poppins;
+        color: $background;
+    }
+
+    //presentation__column_left
+    &_left {
+        padding-top: calc(200px - 135px);
+        .image {
+            width: 383px;
+        }
+    }
+
+    //presentation__column_center
+    &_center {
+        margin-top: auto;
+        text-align: center;
+        margin: 0 auto;
+        padding-bottom: 0;
+        .h1 {
+            color: $yellow;
+            margin-bottom: auto;
+        }
+        img {
+            margin-top: auto;
+        }
+    }
+    //presentation__column_right
+    &_right {
+        padding-top: calc(200px - 135px);
+        text-align: right;
+        .image {
+            width: 273px;
+        }
+    }
+}
+
+
+@media screen and (max-width: $breakpoint1450) {
+
+}
