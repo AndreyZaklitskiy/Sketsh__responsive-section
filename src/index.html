@@ -8,62 +8,58 @@
     <link rel="stylesheet" href="styles/main.min.css">
 </head>
 <body>
-    <div class="wrapper">
+    <header class="section-header">
         <div class="container">
-            <header class="header">
-                <nav class="nav">
-                    <ul class="menu">
-                        <li class="menu__item">
-                            <button class="menu__btn">
-                                <img src="./images/search-icon.png" alt="search">
-                            </button>
-                        </li>
-                        <li class="menu__item menu__item_text"><a href="#" class="menu__item-link">Location</a></li>
-                        <li class="menu__item menu__item_text"><a href="#" class="menu__item-link">About us</a></li>
-                        <li class="menu__item menu__item_logo">
-                            <!-- Лого в навигации, так как по логике это тоже навигация которая ведёт на главную страницу. -->
-                            <a href="#" class="menu__item-link logo">
-                                <img src="./images/logo.png" alt="LOGO">
-                            </a>
-                        </li>
-                        <li class="menu__item menu__item_text"><a href="#" class="menu__item-link">Contact</a></li>
-                        <li class="menu__item menu__item_text"><a href="#" class="menu__item-link">Home</a></li>
-                        <li class="menu__item">
-                            <button class="menu__btn menu__btn_burger"></button>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-
-            <section class="presentation">
-                <div class="row">
-                    <div class="col presentation__column presentation__column_left">
-                        <img class="image" src="./images/crosses.png" alt="img">
-                        <h2 class="h2">Do you want to get fit ?</h2>
-                        <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, recusandae ut.</p>
-                        <a href="#" class="btn">Read more</a>
+            <nav class="header-navBar">
+                <!-- 
+                    Как правильнее было бы сделать тут структуру?
+                    Может правильнее было бы сделать [header-navBar] дивом, а каждый ul обернуть в nav.header-navBar__wrapper?
+                    В чем ошибка именования классов?
+                -->
+                <button class="header-navBar__btn">
+                    <img class="header-navbr" src="./images/search-icon.png" alt="search">
+                </button>
+                <ul class="header-list">
+                    <li class="header-list__item"><a href="#" class="header-list__link">Location</a></li>
+                    <li class="header-list__item"><a href="#" class="header-list__link">About us</a></li>
+                </ul>
+                <div class="header-logo">
+                    <a href="#" class="header-logo__link">
+                        <img class="header-logo__image" src="./images/logo.png" alt="LOGO">
+                    </a>
+                </div>
+                <ul class="header-list">
+                    <li class="header-list__item"><a href="#" class="header-list__link">Contact</a></li>
+                    <li class="header-list__item"><a href="#" class="header-list__link">Home</a></li>
+                </ul>
+                <button class="header-navBar__btn header-navBar__btn_hamburger"></button>
+            </nav>
+            <section class="header-content">
+                    <div class="header-content__column header-content__column_left">
+                        <img class="header-content__image" src="./images/crosses.png" alt="img">
+                        <h2 class="h2 header-content__title">Do you want to get fit ?</h2>
+                        <p class="header-content__sub-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, recusandae ut.</p>
+                        <a href="#" class="btn header-content__link-btn">Read more</a>
                     </div>
-                    <div class="col-2 presentation__column presentation__column_center">
-                        <h1 class="h1">Fitness gym center</h1>
+                    <div class="header-content__column header-content__column_center">
+                        <h1 class="h1 header-content__title">Fitness gym center</h1>
                         <img src="./images/main-img.png" alt="sportsman">
                     </div>
-                    <div class="col presentation__column presentation__column_right">
-                        <img class="image" src="./images/arrows.png" alt="img">
-                        <h2 class="h2">Start training today</h2>
-                        <p class="p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, repellendus! Quisquam.</p>
-                        <a href="#" class="btn">Join now</a>
+                    <div class="header-content__column header-content__column_right">
+                        <img class="header-content__image" src="./images/arrows.png" alt="img">
+                        <h2 class="h2 header-content__title">Start training today</h2>
+                        <p class="header-content__sub-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, repellendus! Quisquam.</p>
+                        <a href="#" class="btn header-content__link-btn">Join now</a>
                     </div>
-                </div>
             </section>
         </div>
-    </div>
     </header>
     <section>
         <div class="container">
-            <p class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>
-            <p class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>
-            <p class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>           
-            <p class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>
+            <p class="header-content__sub-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>
+            <p class="header-content__sub-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>
+            <p class="header-content__sub-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>           
+            <p class="header-content__sub-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>
         </div>
     </section>
 
