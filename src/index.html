@@ -16,23 +16,27 @@
                     Может правильнее было бы сделать [header-navBar] дивом, а каждый ul обернуть в nav.header-navBar__wrapper?
                     В чем ошибка именования классов?
                 -->
-                <button class="header-navBar__btn">
-                    <img class="" src="./images/search-icon.png" alt="search">
-                </button> 
                 <ul class="header-list">
+                    <li class="header-list__item_btn-search">
+                        <button class="header-navBar__btn header-search-btn">
+                            <img class="header-search-btn__img" src="./images/search-icon.png" alt="search">
+                        </button> 
+                    </li>
                     <li class="header-list__item"><a href="#" class="header-list__link">Location</a></li>
                     <li class="header-list__item"><a href="#" class="header-list__link">About us</a></li>
-                </ul>
-                <a href="#" class="header-logo">
-                    <img class="header-logo__image" src="./images/logo.png" alt="LOGO">
-                </a>
-                <ul class="header-list">
+                    <li class="header-list__item_header">
+                        <a href="#" class="header-logo">
+                            <img class="header-logo__image" src="./images/logo.png" alt="LOGO">
+                        </a>
+                    </li>
                     <li class="header-list__item"><a href="#" class="header-list__link">Contact</a></li>
                     <li class="header-list__item"><a href="#" class="header-list__link">Home</a></li>
+                    <li class="header-list__item_btn">
+                        <button class="header-hamburger"><span class="hamburger-inner"></span></button>
+                    </li>
                 </ul>
-                <button class="header-navBar__btn header-navBar__btn_hamburger"></button>
             </nav>
-            <section class="header-content">
+            <div class="header-content">
                     <div class="header-content__column header-content__column_left">
                         <div class="header-content__image">
                             <img class="" src="./images/crosses.png" alt="img">
@@ -55,11 +59,12 @@
                         <p class="header-content__sub-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, repellendus! Quisquam.</p>
                         <a href="#" class="btn header-content__link-btn">Join now</a>
                     </div>
-            </section>
+            </div>
         </div>
     </header>
     <section>
         <div class="container">
+            <h2>123</h2>
             <p class="header-content__sub-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>
             <p class="header-content__sub-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>
             <p class="header-content__sub-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex soluta alias quam inventore vitae eos saepe dignissimos earum! Sapiente officia asperiores hic pariatur ipsum soluta. Dolores, iste. Tempore eaque eligendi, aspernatur quo sequi quos impedit optio exercitationem consequatur consequuntur sunt corporis quidem soluta aperiam eius voluptas fugiat minima ad libero. Nulla earum ex sequi laboriosam rerum reprehenderit autem officia magnam eius enim soluta eos molestias omnis provident adipisci distinctio amet unde, corrupti quisquam excepturi assumenda aliquam eum doloremque. Eligendi necessitatibus ex maxime nostrum, id beatae. Ratione nulla ullam illum impedit autem, architecto quasi quaerat voluptatum ex laborum minima obcaecati!</p>           
