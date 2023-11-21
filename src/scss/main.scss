@@ -8,12 +8,6 @@
 
 
 /* ===========[ Ресет ]=========== */
-.h1 {
-    font-family: $gothic;
-    font-size: 160px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
 .h2, .h3 {
     font-family: $poppins;
     font-size: $fz-headers;
@@ -63,6 +57,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
+    // justify-content: space-around;
     margin: 0 auto;
 }
 
@@ -236,78 +231,101 @@ body {
     }
 }
 
+/* ===========[ Стили главного экрана ]=========== */
 
+        //стили большого заголовка
+.main-title__wrapper {
+    position: absolute;
+    top: 0.9em;//135
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: $gothic;
+    font-size: 2.4em; //150px
+    line-height: 1em; //150px
+    text-transform: uppercase;
+    text-align: center;
+}
+.main-title {
+    color: $themeColor;
+    width: 10.6em;
+}
 
-
-/* ===========[ Header Content ]=========== */
+        //Стили колонок главного экрана
 .header-content {
-    padding-top: 100px;
+    margin-top: auto;
+    position: relative;
+    padding-top: 2.16em; //135px
+    z-index: 1;
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 22.6em;//1590
+        height: 15.9em;//998
+        background-image: url(../images/main-img.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+}
+.header-content__columns {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 40px;
 }
+
 .header-content__column {
-    padding: 20px 0 50px;
-    flex: 1 1 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 1.12em 0 2.88em; //70 0  180
+    max-width: 10.816em; //676
 }
-
-.header-content__column_center {
-    padding: 0;
-    flex: 1 1 50%;
-    text-align: center;
-    .header-content__title {
-        max-width: 100%;
-        font-size: 4vw;
-        margin-bottom: auto;
-    }
-    .header-content__image {
-        margin-top: 50px;
-        margin-bottom: 0;
-    }
-}
-
 .header-content__column_left {
     align-items: flex-start;
     .header-content__image {
-        width: 283px;
+        max-width: 4.5em; //283
     }
 }
 
 .header-content__column_right {
     text-align: right;
     align-items: flex-end;
+    text-align: right;
     .header-content__image {
-        width: 233px;
+        max-width: 3.7em; //233
     }
 }
 
 .header-content__image {
-    margin-bottom: 40px;
+    margin-bottom: 3.36em; //210
 }
 .header-content__title {
-    margin-bottom: 30px;
-    max-width: 500px;
+    margin-bottom: 1em; //62
+    font-size: 1.3em;
+    line-height: 1.3em;
+
     color: $themeColor;
 }
-.header-content__sub-text {
-    margin-bottom: 30px;
-    font-size: $fz-standartText;
-    font-family: $poppins;
-    // margin-bottom: 180px;
-    max-width: 500px;
+.header-content__text {
+    margin-bottom: 1em;
+    font-size: 0.9em;
+    line-height: 1.24em;
     color: $textColor;
 }
 .header-content__link-btn {
     margin-top: auto;
-    min-width: 250px;
+    min-width: 7em; //440
     text-align: center;
-    padding: 22px 43px;
+    padding: 0.6em 1.2em; //42 80
     background-color: $themeColor;
-    border-radius: 62px;
-    font-size: $fz;
+    border-radius: 1.5em;
+    font-size: 1em;
     font-family: $poppins;
     color: $background;
     &:hover {
@@ -316,17 +334,47 @@ body {
         box-shadow: 2px 2px 10px $background;
     }
 }
-// @media screen and (min-width: $breakpoint1450) {
-//     .header-content__column_center {
-//         .header-content__title {
-//             @include dynamic-property('font-size', 40px, 130px, 1450px, 3450px)
-//         }
-//     }
-// }
 
-@media screen and (max-width: $breakpoint1450) {
 
+
+
+@media screen and (max-width : $breakpoint1200) {
+    .header-content {
+        &::before {
+            opacity: .7;
+        }
+    }
 }
-
-
-// доделаю всяких анимашек, выпадашек, прелоад.
+@media screen and (max-width : $breakpoint576) {
+    .main-title__wrapper {
+        font-size: 2em; //150px
+    }
+    .main-title {
+        width: 10.6em;
+    }
+}
+@media screen and (max-width : $breakpoint480) {
+    .main-title__wrapper {
+        position: relative;
+        top: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .main-title {
+        width: auto;
+    }
+    .header-content {
+        &::before {
+            transform: translateX(-70%);
+            opacity: .5;
+        }
+    }
+    .header-content__column {
+        max-width: 100%;
+        padding: 0 0 2em; //70 0  180
+    }
+    .header-content__image {
+    margin-bottom: 2em;
+    } 
+}
+// доделать всяких анимашек, выпадашек, прелоад.
