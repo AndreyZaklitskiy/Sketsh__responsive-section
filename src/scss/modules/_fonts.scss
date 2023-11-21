@@ -1,13 +1,7 @@
-@font-face {
-    font-family: 'DelaGothicOneRegular';
-    src: url('../fonts/DelaGothicOneRegular.woff') format('woff'),
-    url('../fonts/font.woff2') format('woff'),
-}
-@font-face {
-  font-family: 'PoppinsMedium';
-  src: url('../fonts/PoppinsMedium.woff') format('woff'),
-  url('../fonts/PoppinsMedium.woff2') format('woff'),
-}
+/* ==========[ Подключение шрифтов ]========== */
+  // @include font($font_name, $file_name, $weight, $style)
+@include font(DelaGothicOneRegular, DelaGothicOneRegular, 900, normal);
+@include font(PoppinsMedium, PoppinsMedium, 400, normal);
 
 /*
 Используйте WOFF 2.0 в тех браузерах, которые его поддерживают(актуален).

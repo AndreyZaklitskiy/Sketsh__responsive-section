@@ -17,17 +17,15 @@
                     В чем ошибка именования классов?
                 -->
                 <button class="header-navBar__btn">
-                    <img class="header-navbr" src="./images/search-icon.png" alt="search">
-                </button>
+                    <img class="" src="./images/search-icon.png" alt="search">
+                </button> 
                 <ul class="header-list">
                     <li class="header-list__item"><a href="#" class="header-list__link">Location</a></li>
                     <li class="header-list__item"><a href="#" class="header-list__link">About us</a></li>
                 </ul>
-                <div class="header-logo">
-                    <a href="#" class="header-logo__link">
-                        <img class="header-logo__image" src="./images/logo.png" alt="LOGO">
-                    </a>
-                </div>
+                <a href="#" class="header-logo">
+                    <img class="header-logo__image" src="./images/logo.png" alt="LOGO">
+                </a>
                 <ul class="header-list">
                     <li class="header-list__item"><a href="#" class="header-list__link">Contact</a></li>
                     <li class="header-list__item"><a href="#" class="header-list__link">Home</a></li>
@@ -36,17 +34,23 @@
             </nav>
             <section class="header-content">
                     <div class="header-content__column header-content__column_left">
-                        <img class="header-content__image" src="./images/crosses.png" alt="img">
+                        <div class="header-content__image">
+                            <img class="" src="./images/crosses.png" alt="img">
+                        </div>
                         <h2 class="h2 header-content__title">Do you want to get fit ?</h2>
                         <p class="header-content__sub-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, recusandae ut.</p>
                         <a href="#" class="btn header-content__link-btn">Read more</a>
                     </div>
                     <div class="header-content__column header-content__column_center">
                         <h1 class="h1 header-content__title">Fitness gym center</h1>
-                        <img src="./images/main-img.png" alt="sportsman">
+                        <div class="header-content__image">
+                            <img src="./images/main-img.png" alt="sportsman">
+                        </div>
                     </div>
                     <div class="header-content__column header-content__column_right">
-                        <img class="header-content__image" src="./images/arrows.png" alt="img">
+                        <div class="header-content__image">
+                            <img class="" src="./images/arrows.png" alt="img">
+                        </div>
                         <h2 class="h2 header-content__title">Start training today</h2>
                         <p class="header-content__sub-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, repellendus! Quisquam.</p>
                         <a href="#" class="btn header-content__link-btn">Join now</a>
@@ -66,3 +70,21 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+<!-- 
+
+    Единицы измерения:
+    px - фиксировання величина. Не слишком доступно, идеально для новичков.
+    em - относительна размеру шрифта. Размер формируется относительно текущего или унаследованного размера шрифта fz. 
+    (по своему классное свойство, можно упростить себе адаптивную вёрстку, так как все размеры считаются от того, какой у даного блока фонт сайз
+    но работать с этим более сложно... Так же нужно избегать использования его для складываемых штук типа ul)
+    rem - относительно размера шрифта браузера (относительно размера шрифта в теге html, либо, если там ничего не указано, относительно размера шрифта по умолчанию в браузерке).
+    % - вычисляются у каждого свойства по своему. Плавали, знаем.
+
+    vw, vh, vmin, vmax -относительно окна (вьюпорта) браузера.
+
+    rem для размеров шрифтов, при этом не указывать конкретный размер для <html> (отталкиваться от дефолнтного значения браузера 16px)
+    em использовать для медиа запросов, а так же для тех свойств которые необходимо привязать к размеру текущего шрифта.
+    % для построения отзывчивых резиновых конструкций, а так же при позиционировании объектов и при работе со скролом.
+    vh, vw, ... - для полноэкранных блоков и более сложных вычислений.
+    px - для тех свойств которые нужно оставить фиксированными.
+-->
