@@ -1,6 +1,5 @@
-//подключение шрифта
+        //подключение шрифта
 @mixin font($font_name, $file_name, $weight, $style) {
-
     @font-face {
     font-family: $font_name;
     font-display: swap;
@@ -10,10 +9,9 @@
     }
 }
 
-//адаптивное свойство
-$maxWidth : 3540;//1920
-// $maxWidthContainer : ;//1170
-
+        //адаптивное свойство
+$maxWidth : 3540;
+// $maxWidthContainer : 1170;
 @mixin adaptive-value($property, $startSize, $minSize, $type) {
     $addSize : $startSize - $minSize;
     @if $type==1 {
@@ -40,9 +38,6 @@ $maxWidth : 3540;//1920
     @include adaptive-value("padding", 50, 20, 0);
 }
 */
-
-
-
 
 /* px TO % */
 @function prc($pxItemWidth, $pxContainerWidth) {

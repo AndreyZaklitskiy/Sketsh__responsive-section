@@ -8,10 +8,6 @@
 
 
 /* ===========[ Ресет ]=========== */
-.h2, .h3 {
-    font-family: $poppins;
-    font-size: $fz-headers;
-}
 img {
     display: block;
     max-width: 100%;
@@ -21,25 +17,62 @@ button {
     border: none;
 }
 body {
+    // Задаём динамический font-size для работы с em
     @include adaptive-value('font-size', 62.5, 16, 0);
+    @media screen and (min-width: $breakpoint1450) {
+        font-size: calc(26px + (62 - 26) * ((100vw - 1450px) / (3450 - 1450)))
+    }
     @media screen and (max-width: $breakpoint768) {
         font-size: 16px;
     }
+    &.locked {
+        overflow: hidden; /* Заблокировать прокрутку всего body */
+    }
 }
 
-/* ===========[ Стили контейнера ]=========== */
 
+/* ===========[ Стили контейнера ]=========== */
 .section-header {
     position: relative;
     min-width: 100vw;
-    min-height: 100vh;
-    padding-top: 2em; //200px
     background-image: url(./../images/texture.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: $background;
+    background-color: #141414;
     font-family: $poppins;
+    overflow: hidden;
+    z-index: 1;
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        bottom: -1.696em;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 22.6em;
+        height: 15.9em;
+        background-image: url(../images/main-img.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(#333333, 0.7);
+        z-index: -2;
+    }
+}
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
     &:before {
         content: '';
         position: absolute;
@@ -54,65 +87,10 @@ body {
         transform: translateX(50%);
     }
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-around;
-    margin: 0 auto;
-}
 
-/* ===========[ Общие стили navBar и кнопки ]=========== */
+/* ===========[ Cтили navBar'a ]=========== */
 
-.header-navBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 2em;
-    padding-bottom: 1.1em;
-    border-bottom: 5px solid $themeColor;
-}
-.header-navBar__btn {
-    @include adaptive-value('font-size', 62.5, 16, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    width: 1.248em;
-    height: 100%;
-    border: none;
-    .header-search-btn__img {
-        width: 0.816em;
-        height: 0.816em;
-    }
-}
-.header-hamburger {
-    @include adaptive-value('font-size', 62.5, 16, 0);
-    height: 1.152em;
-    background-color: transparent;
-    cursor: pointer;
-    .hamburger-inner {
-        position: relative;
-        display: block;
-        width: 1.248em;
-        height: 0.128em;
-        background-color: $themeColor;
-        &:before, &:after {
-            content: '';
-            position: absolute;
-            display: block;
-            left: 0;
-            background-color: $themeColor;
-            width: 100%;
-            height: 0.128em;
-        }
-        &:before {
-            top: -0.384em;
-        }
-        &:after {
-            bottom: -0.384em;
-        }
-    }
-}
+        // Стили логотипа
 .header-logo {
     display: block;
     margin-left: auto;
@@ -120,8 +98,16 @@ body {
     width: 4.5em;
 }
 
-/* ===========[ Header List ]=========== */
-
+        // Стили navBar'a
+.header-navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5em;
+    height: 2em;
+    padding-bottom: 0.5em;
+    border-bottom: 5px solid $themeColor;
+}
 .header-list {
     display: flex;
     justify-content: space-between;
@@ -141,8 +127,8 @@ body {
         height: 10px;
         left: 0;
         transform: scaleX(0);
-        bottom: calc(-1.1em - 7px);
-        background-color: $textColor;
+        bottom: calc(-0.5em - 7px);
+        background-color: #f6f6f6;
         transition: all .3s;
     }
     &:hover {
@@ -161,58 +147,269 @@ body {
     height: 100%;
     width: 100%;
     line-height: 2em; // соответствует высоте header-navBar
-    color: $textColor;
+    color: #f6f6f6;
     text-align: center;
 }
 
+        //Стили выпадающего меню
+    .navBar-dropdown {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: -100vw;
+        left: 0;
+        scale: 0;
+        background-color: rgba(#141414, 1);
+        z-index: 9;
+        transition: all .8s;
+        &.open {
+            top: 0;
+            scale: 1;
+        }
+        .header-list {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto 0;
+        }
+        .header-list__item {
+            display: block;
+            height: auto;
+            width: 100%;
+            &:before {
+                display: none;
+            }
+            &:hover {
+                .header-list__link {
+                    transition: all .3s;
+                    color: $themeColor;
+                }
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+        //Cтили кнопок
+.header-navBar__btn {
+    @include adaptive-value('font-size', 62.5, 16, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 1.248em;
+    height: 100%;
+    border: none;
+    .header-search-btn__img {
+        width: 0.816em;
+        height: 0.816em;
+    }
+    &:hover {
+        scale: 1.05;
+    }
+}
+.header-hamburger {
+    @include adaptive-value('font-size', 62.5, 16, 0);
+    height: 1.152em;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1000;
+    .hamburger-inner {
+        position: relative;
+        display: block;
+        width: 1.248em;
+        height: 0.128em;
+        background-color: $themeColor;
+        transition: all 0.3s;
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            left: 0;
+            background-color: $themeColor;
+            width: 100%;
+            height: 0.128em;
+        }
+        &:before {
+            transition: all 0.5s;
+            top: -0.384em;
+        }
+        &:after {
+            transition: all 0.5s;
+            bottom: -0.384em;
+        }
+    }
+    &:hover {
+        scale: 1.05;
+    }
+        //стили активного ha
+    &.active {
+        opacity: 0;
+        .hamburger-inner {
+            background: 0px;
+            &:before {
+                top: 0;
+                transform: rotate(-135deg);
+            }
+            &:after {
+                transition: all 0.7s;
+                bottom: 0;
+                transform: rotate(135deg);
+            }
+        }
+
+    }
+}
+.navBar-dropdown {
+    .header-hamburger {
+        opacity: 1;
+        position: fixed;
+        // z-index: 1000;
+        top: 1.5em; //соответствует паддингу навбара
+        right: 2.1em;//соответствует паддингу контейнера
+
+    }
+}
+
+/* ===========[ Стили главного экрана ]=========== */
+
+        // Стили большого заголовка
+.main-title__wrapper {
+    position: absolute;
+    top: 0.3em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: $gothic;
+    font-size: 2.4em;
+    line-height: 1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+.main-title {
+    color: $themeColor;
+    width: 10.6em;
+}
+
+        // Стили контента
+.header-content {
+    margin: auto 0;
+    position: relative;
+    padding-top: 1.5em;
+    z-index: 1;
+}
+
+.header-content__columns {//---
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 40px;
+}
+.header-content__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.12em 0 2em;
+    max-width: 10.816em;
+}
+
+.header-content__column_left {
+    align-items: flex-start;
+    .header-content__image {
+        max-width: 4.5em;
+    }
+}
+.header-content__column_right {
+    text-align: right;
+    align-items: flex-end;
+    text-align: right;
+    .header-content__image {
+        max-width: 3.7em;
+    }
+}
+//.
+.header-content__image {
+    margin-bottom: 2em;
+}
+.header-content__title {
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    line-height: 1.3em;
+
+    color: $themeColor;
+}
+.header-content__text {
+    margin-bottom: 1em;
+    font-size: 0.9em;
+    line-height: 1.24em;
+    color: #f6f6f6;
+}
+.header-content__link-btn {
+    margin-top: auto;
+    min-width: 7em;
+    text-align: center;
+    padding: 0.6em 1.2em;
+    background-color: $themeColor;
+    border-radius: 1.5em;
+    font-size: 1em;
+    font-family: $poppins;
+    color: #141414;
+    &:hover {
+        scale: 1.05;
+        transition: all .3s;
+        box-shadow: 2px 2px 10px #141414;
+    }
+}
+
 /*==========[ @media queries ]==========*/
+
 //1450
 @media screen and (min-width: $breakpoint1450) {
+        //Стили контейнера
     .container {
         max-width: 100%;
         padding: 0 2.88em 0;
     }
 }
 @media screen and (max-width : $breakpoint1450) {
+        //Стили контейнера
     .container {
         max-width: 1370px;
         padding: 0 40px;
     }
+        // Стили navBar'a
     .header-navBar {
         border-bottom: 3px solid $themeColor;
+        padding-bottom: 0.5em;
     }
     .header-list__item {
         &::before {
             height: 6px;
-            bottom: calc(-1.1em - 4px);
+            bottom: calc(-0.5em - 4px);
         }
     }
 }
 //1200
 @media screen and (max-width : $breakpoint1200) {
-    .container {
-        padding: 0 15px;
-    }
-    .header-navBar {
-        padding-bottom: 0.5em;
-    }
-    .header-list__item {
+        //Стили контейнера
+    .section-header {
         &::before {
-            bottom: calc(-0.5em - 4px);
+            opacity: .7;
         }
+    }
+    .container {
+        min-height: auto; //воззвращаем высоту по коненту
+        padding: 0 15px;
     }
 }
 //768
 @media screen and (max-width : $breakpoint768) {
-    .header-navBar__btn {
-        font-size: 24px;
-    }
-    .header-hamburger {
-        font-size: 16px;
-    }
+        // Стили логотипа
     .header-logo {
         width: 100px;
     }
+        // Стили navBar'a
     .header-navBar {
         padding-bottom: 1em;
         border-bottom: 2px solid $themeColor;
@@ -223,137 +420,45 @@ body {
             bottom: calc(-1em - 3px);
         }
     }
+        //Cтили кнопок
+    .header-navBar__btn {
+        font-size: 24px;    //баттонам не передался font-size, пришлось им задавать отдельно
+    }
+    .header-hamburger {
+        font-size: 16px; //баттонам не передался font-size, пришлось им задавать отдельно
+    }
 }
 //576
 @media screen and (max-width : $breakpoint576) {
+        // Стили navBar'a
     .header-list__item {
         display: none;
     }
-}
-
-/* ===========[ Стили главного экрана ]=========== */
-
-        //стили большого заголовка
-.main-title__wrapper {
-    position: absolute;
-    top: 0.9em;//135
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: $gothic;
-    font-size: 2.4em; //150px
-    line-height: 1em; //150px
-    text-transform: uppercase;
-    text-align: center;
-}
-.main-title {
-    color: $themeColor;
-    width: 10.6em;
-}
-
-        //Стили колонок главного экрана
-.header-content {
-    margin-top: auto;
-    position: relative;
-    padding-top: 2.16em; //135px
-    z-index: 1;
-    &::before {
-        content: '';
-        position: absolute;
-        display: block;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 22.6em;//1590
-        height: 15.9em;//998
-        background-image: url(../images/main-img.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        z-index: -1;
-    }
-}
-.header-content__columns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    column-gap: 40px;
-}
-
-.header-content__column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.12em 0 2.88em; //70 0  180
-    max-width: 10.816em; //676
-}
-.header-content__column_left {
-    align-items: flex-start;
-    .header-content__image {
-        max-width: 4.5em; //283
-    }
-}
-
-.header-content__column_right {
-    text-align: right;
-    align-items: flex-end;
-    text-align: right;
-    .header-content__image {
-        max-width: 3.7em; //233
-    }
-}
-
-.header-content__image {
-    margin-bottom: 3.36em; //210
-}
-.header-content__title {
-    margin-bottom: 1em; //62
-    font-size: 1.3em;
-    line-height: 1.3em;
-
-    color: $themeColor;
-}
-.header-content__text {
-    margin-bottom: 1em;
-    font-size: 0.9em;
-    line-height: 1.24em;
-    color: $textColor;
-}
-.header-content__link-btn {
-    margin-top: auto;
-    min-width: 7em; //440
-    text-align: center;
-    padding: 0.6em 1.2em; //42 80
-    background-color: $themeColor;
-    border-radius: 1.5em;
-    font-size: 1em;
-    font-family: $poppins;
-    color: $background;
-    &:hover {
-        scale: 1.05;
-        transition: all .3s;
-        box-shadow: 2px 2px 10px $background;
-    }
-}
-
-
-
-
-@media screen and (max-width : $breakpoint1200) {
-    .header-content {
-        &::before {
-            opacity: .7;
-        }
-    }
-}
-@media screen and (max-width : $breakpoint576) {
+        //Стили контента
     .main-title__wrapper {
-        font-size: 2em; //150px
+        font-size: 2em;
     }
     .main-title {
         width: 10.6em;
     }
 }
+//480
 @media screen and (max-width : $breakpoint480) {
+        // Стили контейнера
+    .section-header {
+        &::before {
+            transform: translateX(-70%);
+            opacity: .5;
+        }
+    }
+        //Стили контента
+    .header-content {
+        flex: 2 1 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+    }
     .main-title__wrapper {
         position: relative;
         top: 0;
@@ -363,18 +468,13 @@ body {
     .main-title {
         width: auto;
     }
-    .header-content {
-        &::before {
-            transform: translateX(-70%);
-            opacity: .5;
-        }
-    }
     .header-content__column {
         max-width: 100%;
-        padding: 0 0 2em; //70 0  180
+        padding: 0 0 2em;
     }
     .header-content__image {
     margin-bottom: 2em;
     } 
 }
+
 // доделать всяких анимашек, выпадашек, прелоад.
