@@ -30,7 +30,6 @@ body {
     }
 }
 
-
 /* ===========[ Стили контейнера ]=========== */
 .section-header {
     position: relative;
@@ -154,9 +153,9 @@ body {
         //Стили выпадающего меню
     .navBar-dropdown {
         position: absolute;
-        height: 100vh;
+        height: 100%;
         width: 100vw;
-        top: -100vw;
+        top: -100%;
         left: 0;
         scale: 0;
         background-color: rgba(#141414, 1);
@@ -243,11 +242,11 @@ body {
     &:hover {
         scale: 1.05;
     }
-        //стили активного ha
+        //стили активного hamburger
     &.active {
         opacity: 0;
         .hamburger-inner {
-            background: 0px;
+            background: transparent;
             &:before {
                 top: 0;
                 transform: rotate(-135deg);
@@ -261,14 +260,16 @@ body {
 
     }
 }
+    // Стили hamburger в абаптивном меню
 .navBar-dropdown {
     .header-hamburger {
         opacity: 1;
         position: fixed;
-        // z-index: 1000;
-        top: 1.5em; //соответствует паддингу навбара
-        right: 2.1em;//соответствует паддингу контейнера
+        top: 2em; //соответствует паддингу навбара
+        right: 2em;//соответствует паддингу контейнера
+      @media screen and (max-width: 1200px) {
 
+      }
     }
 }
 
@@ -321,7 +322,6 @@ body {
     }
 }
 .header-content__column_right {
-    text-align: right;
     align-items: flex-end;
     text-align: right;
     .header-content__image {
@@ -474,7 +474,7 @@ body {
     }
     .header-content__image {
     margin-bottom: 2em;
-    } 
+    }
 }
 
 // доделать всяких анимашек, выпадашек, прелоад.
